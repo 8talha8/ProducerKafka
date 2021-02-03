@@ -17,13 +17,13 @@ spring.h2.console.path=/console
 spring.datasource.url=jdbc:h2:file:D:/T-Work/h2DB/demo
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
-spring.datasource.password=password
+spring.datasource.password=pass
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.jpa.hibernate.ddl-auto=update
 logging.level.kafka=INFO
 spring.output.ansi.enabled=ALWAYS
- - - add swagger plugin in into project
- -  externalize application.yml configuration and set  set Environment variables  accordingly in run configuration
+- add swagger plugin in into project
+-  externalize application.yml configuration and set  set Environment variables  accordingly in run configuration
     >SPRING_CONFIG_LOCATION= {your_directory} , SPRING_CONFIG_NAME= application
 - run the application from KafkaDemoApplication.java
 - go to [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/) and test the application.
@@ -32,4 +32,4 @@ spring.output.ansi.enabled=ALWAYS
 - add swagger-codegen-maven-plugin in pom
 - clean build the application . It will generate Source code  for consumer
 - utilite the generated code to consume API
-- Consumer example can be found at 
+- Consumer example can be found at https://github.com/8talha8/consumerkafka
