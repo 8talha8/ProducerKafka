@@ -9,10 +9,10 @@
 		<version>2.4.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>KafkaDemo</artifactId>
+	<groupId>kafka.demo</groupId>
+	<artifactId>ProducerKafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>KafkaDemo</name>
+	<name>ProducerKafka</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -46,6 +46,10 @@
     <groupId>io.springfox</groupId>
     <artifactId>springfox-boot-starter</artifactId>
     <version>3.0.0</version>
+</dependency>
+<dependency>
+  <groupId>org.springframework.kafka</groupId>
+  <artifactId>spring-kafka</artifactId>
 </dependency>
 
 

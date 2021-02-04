@@ -14,15 +14,21 @@ import kafka.demo.repo.DepartmentRepo;
 public class DepartmentSrvc {
 	@Autowired
 	DepartmentRepo departmentRepo;
+	@Autowired
+	ProducerSrvc producerSrvc;
 
 	public List<Department> getAll() {
 		// TODO Auto-generated method stub
-		return departmentRepo.getAll();
+		List<Department> lst = departmentRepo.getAll();
+		producerSrvc.produce(lst);
+		return lst;
 	}
 
 	public Optional<Department> getById(Long id) {
 		// TODO Auto-generated method stub
-		return departmentRepo.findById(id);
+		Optional<Department> dep = departmentRepo.findById(id);
+		producerSrvc.produce(dep.isPresent()?dep.get():new Department());
+		return dep;
 	}
 
 	public void save(Department department) {
