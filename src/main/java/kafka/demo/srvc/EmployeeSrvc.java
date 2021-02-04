@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import kafka.demo.model.Department;
 import kafka.demo.model.Employee;
 import kafka.demo.repo.EmployeeRepo;
 
@@ -14,13 +15,21 @@ import kafka.demo.repo.EmployeeRepo;
 public class EmployeeSrvc {
 	@Autowired
 	EmployeeRepo employeeRepo;
+	@Autowired
+	ProducerSrvc producerSrvc;
 
 	public List<Employee> getAll() {
-		return employeeRepo.getAll();
+		// TODO Auto-generated method stub
+		List<Employee> lst = employeeRepo.getAll();
+		producerSrvc.produceEmp(lst);
+		return lst;
 	}
 
 	public Optional<Employee> getById(Long id) {
-		return employeeRepo.findById(id);
+		// TODO Auto-generated method stub
+		Optional<Employee> emp = employeeRepo.findById(id);
+		producerSrvc.produce(emp.isPresent()?emp.get():new Employee());
+		return emp;
 	}
 
 	public void save(Employee employee) {
