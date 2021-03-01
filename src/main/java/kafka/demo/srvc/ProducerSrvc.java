@@ -34,4 +34,8 @@ public void produce(Employee emp) {
 	kafkaTemplateEmp.send("employeeTopic",emp);
 }
 
+public void produceBatch(Department d) {
+	kafkaTemplate.send("departmentTopicLstBatch",d);
+}
+
 }

@@ -55,4 +55,9 @@ public class DepartmentCntrlr {
 		departmentSrvc.delete(id);
 		return ResponseEntity.ok(new Status(200, "deleted"));
 	}
+	@GetMapping("/batch")
+	public ResponseEntity<Status> batch() {
+		departmentSrvc.batch();
+		return ResponseEntity.ok(new Status(200, "done producing"));
+	}
 }

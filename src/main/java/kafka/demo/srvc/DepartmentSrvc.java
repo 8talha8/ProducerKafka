@@ -1,5 +1,6 @@
 package kafka.demo.srvc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +53,16 @@ public class DepartmentSrvc {
 				.orElseThrow(() -> new ResourceNotFoundException("Depatment not found for the id :: " + id));
 		departmentRepo.deleteById(id);
 
+	}
+	public void batch() {
+		// TODO Auto-generated method stub
+		for(long i=0;i<1000;i++) {
+			Department d = new Department();
+			d.setId(i);
+			d.setName("dName"+i);
+			producerSrvc.produceBatch(d);
+		}
+		
 	}
 
 }
